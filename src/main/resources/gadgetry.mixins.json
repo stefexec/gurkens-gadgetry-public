@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "package": "de.gurkenwerfer.toolkit.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
