@@ -1,6 +1,6 @@
 # Gurkenwerfer_'s Gadgetry
 
-An assortment of various useful tools. Addon to be used with the latest dev build of [Meteor Client](https://github.com/MeteorDevelopment/meteor-client).
+An assortment of various useful tools. Addon for 1.19.3 to be used with the latest dev build of [Meteor Client](https://github.com/MeteorDevelopment/meteor-client).
 
 # Features
 ## Modules

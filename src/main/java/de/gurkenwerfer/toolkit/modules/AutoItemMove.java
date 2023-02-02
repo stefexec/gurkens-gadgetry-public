@@ -2,10 +2,7 @@ package de.gurkenwerfer.toolkit.modules;
 
 import de.gurkenwerfer.toolkit.GurkensGadgetry;
 import meteordevelopment.meteorclient.events.world.TickEvent;
-import meteordevelopment.meteorclient.settings.DoubleSetting;
-import meteordevelopment.meteorclient.settings.ItemListSetting;
-import meteordevelopment.meteorclient.settings.Setting;
-import meteordevelopment.meteorclient.settings.SettingGroup;
+import meteordevelopment.meteorclient.settings.*;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.utils.network.MeteorExecutor;
 import meteordevelopment.meteorclient.utils.player.InvUtils;
@@ -26,7 +23,7 @@ public class AutoItemMove extends Module {
         .build()
     );
 
-    private final Setting<Double> delay = sgGeneral.add(new DoubleSetting.Builder()
+    private final Setting<Integer> delay = sgGeneral.add(new IntSetting.Builder()
         .name("delay")
         .description("The delay between each item move in ms.")
         .defaultValue(30)

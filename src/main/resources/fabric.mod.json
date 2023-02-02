@@ -21,7 +21,7 @@
     "gadgetry.mixins.json"
   ],
   "custom": {
-    "meteor-client:color": "38,255,0"
+    "meteor-client:color": "0,255,155"
   },
   "depends": {
     "java": ">=17",
