@@ -21,6 +21,8 @@
 - `Bedrock ESP` - Renders illegally placed bedrock blocks through walls.
 - `AutoItemMove` - Automatically moves items from the player's inventory into opened containers.
 - `DubCounter` - Count the amount of double chests in render distance.
-- `Gurkfly` - Fly like in creative mode. Only works on servers without anti-cheat.
 - `NoChestRender` - Disables rendering of chests completely to improve performance.
+- `Gurkfly` - Fly like in creative mode. Only works on servers without anti-cheat.
 - `Robowalk` - Bypasses the anti-human plugin on the Liveoverflow server.
+## Commands
+- `vClip up|down` - Allows you to clip through blocks vertically.

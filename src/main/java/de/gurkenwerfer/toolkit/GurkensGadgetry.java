@@ -1,9 +1,11 @@
 package de.gurkenwerfer.toolkit;
 
 import com.mojang.logging.LogUtils;
+import de.gurkenwerfer.toolkit.Commands.VClip;
 import de.gurkenwerfer.toolkit.modules.*;
 import de.gurkenwerfer.toolkit.modules.BedrockESP.BedrockESP;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
+import meteordevelopment.meteorclient.systems.commands.Commands;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
@@ -24,8 +26,10 @@ public class GurkensGadgetry extends MeteorAddon {
         Modules.get().add(new Robowalk());
         Modules.get().add(new Gurkfly());
 
-    }
+        // Commands
+        Commands.get().add(new VClip());
 
+    }
     @Override
     public void onRegisterCategories() {
 
@@ -33,7 +37,6 @@ public class GurkensGadgetry extends MeteorAddon {
         LOG.info("Registered Category");
 
     }
-
     @Override
     public String getPackage() {
         return "de.gurkenwerfer.toolkit";
