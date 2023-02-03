@@ -12,7 +12,7 @@
     <br/>
     <a href="https://github.com/stefexec/gurkens-gadgetry-public/issues">Report Bug</a>
     .
-    <a href="https://github.com/stefexec/gurkens-gadgetry-public/issues">Request Feature</a>
+    <a href="https://github.com/stefexec/gurkens-gadgetry-public/pulls">Request Feature</a>
   </p>
 </p>
 
@@ -22,5 +22,5 @@
 - `AutoItemMove` - Automatically moves items from the player's inventory into opened containers.
 - `DubCounter` - Count the amount of double chests in render distance.
 - `Gurkfly` - Fly like in creative mode. Only works on servers without anti-cheat.
-- `NoChestRender` - Disables rendering of Chests completely to improve performance.
-- `Robowalk` - Bypasses the Anti-Human plugin on the Liveoverflow server.
+- `NoChestRender` - Disables rendering of chests completely to improve performance.
+- `Robowalk` - Bypasses the anti-human plugin on the Liveoverflow server.
