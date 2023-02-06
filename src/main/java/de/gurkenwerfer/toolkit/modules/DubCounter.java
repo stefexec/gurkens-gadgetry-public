@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DubCounter extends Module {
+    //  Thanks to vined_ and nooniboi for the original DubCounter module.
+
     public List<BlockPos> coords = new ArrayList<>();
     public TimerUtils timer = new TimerUtils();
 

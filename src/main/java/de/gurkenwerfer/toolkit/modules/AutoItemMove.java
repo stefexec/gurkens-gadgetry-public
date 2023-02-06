@@ -16,6 +16,8 @@ import net.minecraft.screen.slot.Slot;
 import java.util.List;
 
 public class AutoItemMove extends Module {
+    // Thanks to vined_ and nooniboi for the original AutoItemMove module.
+
     public SettingGroup sgGeneral = settings.getDefaultGroup();
     private final Setting<List<Item>> items = sgGeneral.add(new ItemListSetting.Builder()
         .name("items")
