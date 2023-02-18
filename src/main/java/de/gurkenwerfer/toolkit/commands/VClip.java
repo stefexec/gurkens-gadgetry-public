@@ -1,4 +1,4 @@
-package de.gurkenwerfer.toolkit.Commands;
+package de.gurkenwerfer.toolkit.commands;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import meteordevelopment.meteorclient.systems.commands.Command;

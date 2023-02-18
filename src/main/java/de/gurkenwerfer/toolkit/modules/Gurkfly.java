@@ -3,6 +3,7 @@ package de.gurkenwerfer.toolkit.modules;
 import de.gurkenwerfer.toolkit.GurkensGadgetry;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.DoubleSetting;
+import meteordevelopment.meteorclient.settings.IntSetting;
 import meteordevelopment.meteorclient.settings.Setting;
 import meteordevelopment.meteorclient.settings.SettingGroup;
 import meteordevelopment.meteorclient.systems.modules.Module;
@@ -14,7 +15,7 @@ public class Gurkfly extends Module {
     private final Setting<Double> FLYING_SPEED = sgGeneral.add(new DoubleSetting.Builder()
         .name("flying-speed")
         .description("Take a wild guess.")
-        .defaultValue(1.6)
+        .defaultValue(2.420)
         .min(0)
         .sliderMax(10)
         .build()
@@ -23,9 +24,9 @@ public class Gurkfly extends Module {
     private final Setting<Double> HOVER_SPEED = sgGeneral.add(new DoubleSetting.Builder()
         .name("hover-speed")
         .description("How far you ascend per tick when hovering.")
-        .defaultValue(0.003)
+        .defaultValue(0.009)
         .min(0)
-        .sliderMax(0.01)
+        .sliderMax(0.02)
         .build()
     );
     private final Setting<Double> BFALL_SPEED = sgGeneral.add(new DoubleSetting.Builder()
@@ -54,6 +55,15 @@ public class Gurkfly extends Module {
         .build()
     );
 
+    private final Setting<Integer> ticks = sgGeneral.add(new IntSetting.Builder()
+        .name("Bypass Fall Ticks")
+        .description("How many ticks to wait before falling again to bypass the vanilla anti-cheat.")
+        .defaultValue(20)
+        .min(1)
+        .sliderMax(50)
+        .build()
+    );
+
     public Gurkfly() {
         super(GurkensGadgetry.CATEGORY, "gurkfly", "Fly like in creative mode. Only works on unprotected servers.");
     }
@@ -65,6 +75,8 @@ public class Gurkfly extends Module {
 
     @EventHandler
     private void onTick(TickEvent.Pre event) {
+
+        int tick = 0;
 
         assert mc.player != null;
         // hover and move
@@ -79,25 +91,28 @@ public class Gurkfly extends Module {
                     mc.player.setVelocity(mc.player.getRotationVector().rotateY(45).multiply(FLYING_SPEED.get()));
                 } else if (mc.options.rightKey.isPressed()) {
                     mc.player.setVelocity(mc.player.getRotationVector().rotateY(-45).multiply(FLYING_SPEED.get()));
+                } else {
+                    mc.player.setVelocity(0, mc.player.getVelocity().y, 0);
                 }
-
-                // add upwards momentum
-                mc.player.setVelocity(mc.player.getVelocity().x, HOVER_SPEED.get(), mc.player.getVelocity().z);
 
                 //fall down every 35 ticks to bypass vanilla fly detection
-                if (mc.player.age % 38 == 0) {
+                if (mc.player.age % ticks.get() == 0) {
                     mc.player.setPosition(mc.player.getX(), mc.player.getY() - BFALL_SPEED.get(), mc.player.getZ());
+
+                } else {
+                    mc.player.setVelocity(mc.player.getVelocity().x, HOVER_SPEED.get(), mc.player.getVelocity().z);
                 }
+
             }
         } else if (mc.options.jumpKey.isPressed()) {
 
             //gain upward momentum
             if (mc.player != null) {
-
-                mc.player.setVelocity(mc.player.getVelocity().add(0, ASC_SPEED.get(), 0));
                 //fall down every 35 ticks to bypass vanilla fly detection
-                if (mc.player.age % 38 == 0) {
+                if (mc.player.age % ticks.get() == 0) {
                     mc.player.setPosition(mc.player.getX(), mc.player.getY() - BFALL_SPEED.get(), mc.player.getZ());
+                } else {
+                    mc.player.setVelocity(mc.player.getVelocity().add(0, ASC_SPEED.get(), 0));
                 }
             }
         } else if (mc.options.sneakKey.isPressed()) {

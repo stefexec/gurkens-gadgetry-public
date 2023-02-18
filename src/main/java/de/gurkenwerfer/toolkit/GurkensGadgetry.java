@@ -1,7 +1,7 @@
 package de.gurkenwerfer.toolkit;
 
 import com.mojang.logging.LogUtils;
-import de.gurkenwerfer.toolkit.Commands.VClip;
+import de.gurkenwerfer.toolkit.commands.VClip;
 import de.gurkenwerfer.toolkit.modules.*;
 import de.gurkenwerfer.toolkit.modules.BedrockESP.BedrockESP;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
@@ -23,8 +23,11 @@ public class GurkensGadgetry extends MeteorAddon {
         Modules.get().add(new DubCounter());
         Modules.get().add(new AutoItemMove());
         Modules.get().add(new BedrockESP());
-        Modules.get().add(new Robowalk());
+        Modules.get().add(new Gurkwalk());
         Modules.get().add(new Gurkfly());
+        Modules.get().add(new PacketLogger());
+        Modules.get().add(new FakeCreativeBypass());
+        Modules.get().add(new WorldGuardBypass());
 
         // Commands
         Commands.get().add(new VClip());

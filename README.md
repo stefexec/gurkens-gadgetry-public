@@ -23,6 +23,9 @@
 - `DubCounter` - Count the amount of double chests in render distance.
 - `NoChestRender` - Disables rendering of chests completely to improve performance.
 - `Gurkfly` - Fly like in creative mode. Only works on servers without anti-cheat.
-- `Robowalk` - Bypasses the anti-human plugin on the Liveoverflow server.
+- `Gurkwalk` - Bypasses the anti-human plugin on the LO server.
+- `LO Bypasses` - Bypasses the multiple nag/demo-screens on the LO Server.
+- `Packet Logger` - A very basic packet logger.
+- `WorldGuard Bypass` - Move inside WorldGuard protected areas.
 ## Commands
 - `vClip up|down` - Allows you to clip through blocks vertically.
