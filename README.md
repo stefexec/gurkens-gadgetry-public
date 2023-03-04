@@ -14,6 +14,11 @@
     .
     <a href="https://github.com/stefexec/gurkens-gadgetry-public/pulls">Request Feature</a>
   </p>
+  <p align="center">
+      <a href="https://img.shields.io/github/downloads/stefexec/gurkens-gadgetry-public/total" alt="Contributors">
+      <img src="https://img.shields.io/github/downloads/stefexec/gurkens-gadgetry-public/total" />
+      </p>
+    </a>
 </p>
 
 # Features
