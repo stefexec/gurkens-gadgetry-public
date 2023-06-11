@@ -3,10 +3,13 @@
   "package": "de.gurkenwerfer.toolkit.mixins",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "ClientPlayNetworkHandlerMixin",
-    "ClientConnectionMixin"
+    "ClientConnectionMixin",
+    "ClientPlayNetworkHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "ClientConnectionAccessor"
+  ]
 }

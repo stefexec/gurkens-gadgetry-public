@@ -1,11 +1,12 @@
 package de.gurkenwerfer.toolkit;
 
 import com.mojang.logging.LogUtils;
-import de.gurkenwerfer.toolkit.commands.VClip;
+
+import de.gurkenwerfer.toolkit.commands.CamClip;
 import de.gurkenwerfer.toolkit.modules.*;
 import de.gurkenwerfer.toolkit.modules.BedrockESP.BedrockESP;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
-import meteordevelopment.meteorclient.systems.commands.Commands;
+import meteordevelopment.meteorclient.commands.Commands;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
@@ -30,7 +31,9 @@ public class GurkensGadgetry extends MeteorAddon {
         Modules.get().add(new WorldGuardBypass());
 
         // Commands
-        Commands.get().add(new VClip());
+
+        // just use meteor until I fix this
+        // Commands.add(new CamClip());
 
     }
     @Override
