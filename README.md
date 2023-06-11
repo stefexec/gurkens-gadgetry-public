@@ -7,7 +7,7 @@
 <h3 align="center">Gurkenwerfer_'s Gadgetry</h3>
 
   <p align="center">
-    An assortment of various useful tools. Addon for 1.19.3 to be used with the latest dev build of <a href="https://github.com/MeteorDevelopment/meteor-client">Meteor Client</a>.
+    An assortment of various useful tools. Addon for 1.20 to be used with the latest dev build of <a href="https://github.com/MeteorDevelopment/meteor-client">Meteor Client</a>.
     <br/>
     <br/>
     <a href="https://github.com/stefexec/gurkens-gadgetry-public/issues">Report Bug</a>
@@ -31,6 +31,5 @@
 - `Gurkwalk` - Bypasses the anti-human plugin on the LO server.
 - `LO Bypasses` - Bypasses the multiple nag/demo-screens on the LO Server.
 - `Packet Logger` - A very basic packet logger.
-- `WorldGuard Bypass` - Move inside WorldGuard protected areas.
-## Commands
-- `vClip up|down` - Allows you to clip through blocks vertically.
+- `WorldGuard Bypass` - Easily move inside WorldGuard protected areas.
+
