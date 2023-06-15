@@ -33,7 +33,7 @@ public class GurkensGadgetry extends MeteorAddon {
         // Commands
 
         // just use meteor until I fix this
-        // Commands.add(new CamClip());
+        Commands.add(new CamClip());
 
     }
     @Override
