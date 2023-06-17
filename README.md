@@ -33,3 +33,6 @@
 - `Packet Logger` - A very basic packet logger.
 - `WorldGuard Bypass` - Easily move inside WorldGuard protected areas.
 
+## Commands
+- `CamClip` - Clip to the y coordinate your freecam is pointing at.
+
