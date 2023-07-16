@@ -2,6 +2,7 @@ package de.gurkenwerfer.toolkit;
 
 import com.mojang.logging.LogUtils;
 
+import de.gurkenwerfer.toolkit.commands.AutoClip;
 import de.gurkenwerfer.toolkit.commands.CamClip;
 import de.gurkenwerfer.toolkit.modules.*;
 import de.gurkenwerfer.toolkit.modules.BedrockESP.BedrockESP;
@@ -31,9 +32,8 @@ public class GurkensGadgetry extends MeteorAddon {
         Modules.get().add(new WorldGuardBypass());
 
         // Commands
-
-        // just use meteor until I fix this
         Commands.add(new CamClip());
+        Commands.add(new AutoClip());
 
     }
     @Override
