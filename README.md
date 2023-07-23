@@ -31,7 +31,7 @@
 - `Gurkwalk` - Bypasses the anti-human plugin on the LO server.
 - `LO Bypasses` - Bypasses the multiple nag/demo-screens on the LO Server.
 - `Packet Logger` - A very basic packet logger.
-- `WorldGuard Bypass` - Easily move inside WorldGuard protected areas.
+- `WorldGuard Bypass` - Easily move inside WorldGuard protected areas. Now with FlyKick Bypass!
 
 ## Commands
 - `CamClip` - Clip to the y coordinate your freecam is pointing at.

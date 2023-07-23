@@ -6,12 +6,26 @@ import de.gurkenwerfer.toolkit.GurkensGadgetry;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.text.Text;
+import meteordevelopment.meteorclient.settings.Setting;
+import meteordevelopment.meteorclient.settings.SettingGroup;
+import meteordevelopment.meteorclient.settings.BoolSetting;
 
 public class WorldGuardBypass extends Module{
 
     public WorldGuardBypass () {
         super(GurkensGadgetry.CATEGORY, "WGBypass", "Bypasses WorldGuards region protection.");
     }
+
+    public SettingGroup sgGeneral = settings.getDefaultGroup();
+
+    private final Setting<Boolean> FlyKickBypass = sgGeneral.add(new BoolSetting.Builder()
+        .name("Anti Fly Kick")
+        .description("Prevents you from getting kicked for flying.")
+        .defaultValue(true)
+        .build()
+    );
+
+    int tick = 0;
 
     @Override
     public void onActivate() {
@@ -96,7 +110,23 @@ public class WorldGuardBypass extends Module{
         double zOffset = z * speed;
 
         assert mc.player != null;
+
+        tick++;
+
+        // fly kick bypass
+        if (FlyKickBypass.get()) {
+            if (tick % 20 == 0) {
+                down();
+                return;
+            }
+        }
+
         mc.player.networkHandler.getConnection().send(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX() + xOffset, mc.player.getY() + yOffset, mc.player.getZ() + zOffset, mc.player.isOnGround()));
         mc.player.networkHandler.getConnection().send(new PlayerMoveC2SPacket.PositionAndOnGround(mc.player.getX() + 420, mc.player.getY(), mc.player.getZ() + 420, mc.player.isOnGround()));
+    }
+
+    private void down() {
+        assert mc.player != null;
+        mc.player.setPosition(mc.player.getX(), mc.player.getY() - 0.12, mc.player.getZ());
     }
 }

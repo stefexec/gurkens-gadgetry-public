@@ -17,8 +17,8 @@ public class ClientPlayNetworkHandlerMixin {
         FakeCreativeBypass bypass = Modules.get().get(FakeCreativeBypass.class);
 
         if (bypass.isActive() && packet.getReason() == GameStateChangeS2CPacket.DEMO_MESSAGE_SHOWN && packet.getValue() == 0.0F && bypass.bypassDemo()
-            || packet.getReason() == GameStateChangeS2CPacket.GAME_WON && bypass.bypassCredits()
-            || packet.getReason() == GameStateChangeS2CPacket.GAME_MODE_CHANGED && bypass.bypassCreative()) {
+            || bypass.isActive() && packet.getReason() == GameStateChangeS2CPacket.GAME_WON && bypass.bypassCredits()
+            || bypass.isActive() && packet.getReason() == GameStateChangeS2CPacket.GAME_MODE_CHANGED && bypass.bypassCreative()) {
             info.cancel();
         }
     }
