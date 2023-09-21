@@ -88,9 +88,9 @@ public class Gurkfly extends Module {
                 } else if (mc.options.backKey.isPressed()) {
                     mc.player.setVelocity(mc.player.getRotationVector().multiply(-FLYING_SPEED.get()));
                 } else if (mc.options.leftKey.isPressed()) {
-                    mc.player.setVelocity(mc.player.getRotationVector().rotateY(45).multiply(FLYING_SPEED.get()));
+                    mc.player.setVelocity(mc.player.getRotationVector().rotateY((float) Math.PI / 2).multiply(FLYING_SPEED.get()));
                 } else if (mc.options.rightKey.isPressed()) {
-                    mc.player.setVelocity(mc.player.getRotationVector().rotateY(-45).multiply(FLYING_SPEED.get()));
+                    mc.player.setVelocity(mc.player.getRotationVector().rotateY((float)-Math.PI / 2).multiply(FLYING_SPEED.get()));
                 } else {
                     mc.player.setVelocity(0, mc.player.getVelocity().y, 0);
                 }
