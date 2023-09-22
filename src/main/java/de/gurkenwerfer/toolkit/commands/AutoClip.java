@@ -25,7 +25,7 @@ public class AutoClip extends Command {
 
             BlockPos playerPos = mc.player.getBlockPos();
             int y = playerPos.getY();
-            BlockPos blockBelowPos = findFirstAirBlockBelowPlayer(playerPos);
+            BlockPos blockBelowPos = findAirBelowPlayer(playerPos);
 
             if (blockBelowPos != null) {
                 // get block below the first air block
@@ -71,15 +71,22 @@ public class AutoClip extends Command {
     }
 
     // function that finds the first available position below the player that consists of two air blocks, if player stands on ground, go down until two air blocks are found
-    public BlockPos findFirstAirBlockBelowPlayer(BlockPos playerPos) {
-
+    public BlockPos findAirBelowPlayer(BlockPos playerPos) {
         BlockPos currentPos = playerPos.down();
+        BlockPos lastAirBlock1 = null;
+        BlockPos lastAirBlock2 = null;
 
         while (currentPos.getY() > -60) {
             if (mc.world.getBlockState(currentPos).isAir() && mc.world.getBlockState(currentPos.down()).isAir()) {
-                return currentPos;
+                // Shift the last air block references
+                lastAirBlock2 = lastAirBlock1;
+                lastAirBlock1 = currentPos;
             }
             currentPos = currentPos.down();
+        }
+
+        if (lastAirBlock2 != null) {
+            return lastAirBlock2;
         }
         return null;
     }
