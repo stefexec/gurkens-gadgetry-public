@@ -1,7 +1,7 @@
-package de.gurkenwerfer.toolkit.modules;
+package de.gurkenwerfer.gurkensgadgetry.modules;
 
 import com.mojang.logging.LogUtils;
-import de.gurkenwerfer.toolkit.GurkensGadgetry;
+import de.gurkenwerfer.gurkensgadgetry.GurkensGadgetry;
 import meteordevelopment.meteorclient.events.packets.PacketEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;
 import meteordevelopment.meteorclient.settings.Setting;

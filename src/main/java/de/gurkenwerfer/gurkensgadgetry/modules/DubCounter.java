@@ -1,7 +1,7 @@
-package de.gurkenwerfer.toolkit.modules;
+package de.gurkenwerfer.gurkensgadgetry.modules;
 
-import de.gurkenwerfer.toolkit.GurkensGadgetry;
-import de.gurkenwerfer.toolkit.utils.TimerUtils;
+import de.gurkenwerfer.gurkensgadgetry.GurkensGadgetry;
+import de.gurkenwerfer.gurkensgadgetry.utils.TimerUtils;
 import meteordevelopment.meteorclient.events.render.RenderBlockEntityEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.IntSetting;

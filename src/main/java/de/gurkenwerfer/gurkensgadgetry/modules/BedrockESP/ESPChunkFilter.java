@@ -1,4 +1,9 @@
-package de.gurkenwerfer.toolkit.modules.BedrockESP;
+/*
+ * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * Copyright (c) Meteor Development.
+ */
+
+package de.gurkenwerfer.gurkensgadgetry.modules.BedrockESP;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
@@ -17,14 +22,13 @@ import java.util.List;
 import static meteordevelopment.meteorclient.MeteorClient.mc;
 import static meteordevelopment.meteorclient.utils.Utils.getRenderDistance;
 
-public class ESPChunk {
-    private static final BlockPos.Mutable blockPos = new BlockPos.Mutable();
+public class ESPChunkFilter {
 
     private Dimension lastDimension;
     private final int x, z;
     public Long2ObjectMap<ESPBlock> blocks;
 
-    public ESPChunk(int x, int z) {
+    public ESPChunkFilter(int x, int z) {
         this.x = x;
         this.z = z;
     }
@@ -44,7 +48,6 @@ public class ESPChunk {
         } else if (lastDimension == Dimension.Overworld) {
             if (block.y < -59) return;
         }
-
 
         if (blocks == null) blocks = new Long2ObjectOpenHashMap<>(64);
         blocks.put(ESPBlock.getKey(blockPos), block);
@@ -95,9 +98,11 @@ public class ESPChunk {
     }
 
 
-    public static ESPChunk searchChunk(Chunk chunk, List<Block> blocks) {
-        ESPChunk schunk = new ESPChunk(chunk.getPos().x, chunk.getPos().z);
+    public static ESPChunkFilter searchChunk(Chunk chunk, List<Block> blocks) {
+        ESPChunkFilter schunk = new ESPChunkFilter(chunk.getPos().x, chunk.getPos().z);
         if (schunk.shouldBeDeleted()) return schunk;
+
+        BlockPos.Mutable blockPos = new BlockPos.Mutable();
 
         for (int x = chunk.getPos().getStartX(); x <= chunk.getPos().getEndX(); x++) {
             for (int z = chunk.getPos().getStartZ(); z <= chunk.getPos().getEndZ(); z++) {

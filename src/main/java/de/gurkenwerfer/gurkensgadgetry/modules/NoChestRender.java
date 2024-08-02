@@ -1,6 +1,6 @@
-package de.gurkenwerfer.toolkit.modules;
+package de.gurkenwerfer.gurkensgadgetry.modules;
 
-import de.gurkenwerfer.toolkit.GurkensGadgetry;
+import de.gurkenwerfer.gurkensgadgetry.GurkensGadgetry;
 import meteordevelopment.meteorclient.events.render.RenderBlockEntityEvent;
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.settings.BoolSetting;

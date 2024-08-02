@@ -1,13 +1,10 @@
-package de.gurkenwerfer.toolkit.commands;
+package de.gurkenwerfer.gurkensgadgetry.commands;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import meteordevelopment.meteorclient.commands.Command;
 import net.minecraft.command.CommandSource;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.text.Text;
-
-import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
-import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class CamClip extends Command {
     public CamClip() {
