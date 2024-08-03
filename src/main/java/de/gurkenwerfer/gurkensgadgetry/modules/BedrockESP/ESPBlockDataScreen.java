@@ -1,4 +1,4 @@
-package de.gurkenwerfer.toolkit.modules.BedrockESP;
+package de.gurkenwerfer.gurkensgadgetry.modules.BedrockESP;
 
 import meteordevelopment.meteorclient.gui.GuiTheme;
 import meteordevelopment.meteorclient.gui.WindowScreen;

@@ -1,8 +1,8 @@
-package de.gurkenwerfer.toolkit.modules;
+package de.gurkenwerfer.gurkensgadgetry.modules;
 
 import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.systems.modules.Module;
-import de.gurkenwerfer.toolkit.GurkensGadgetry;
+import de.gurkenwerfer.gurkensgadgetry.GurkensGadgetry;
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.text.Text;
@@ -13,7 +13,7 @@ import meteordevelopment.meteorclient.settings.BoolSetting;
 public class WorldGuardBypass extends Module{
 
     public WorldGuardBypass () {
-        super(GurkensGadgetry.CATEGORY, "WGBypass", "Bypasses WorldGuards region protection.");
+        super(GurkensGadgetry.CATEGORY, "WorldGuardBypass", "Bypasses WorldGuards region protection.");
     }
 
     public SettingGroup sgGeneral = settings.getDefaultGroup();

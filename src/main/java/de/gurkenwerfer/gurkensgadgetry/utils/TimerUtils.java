@@ -1,4 +1,4 @@
-package de.gurkenwerfer.toolkit.utils;
+package de.gurkenwerfer.gurkensgadgetry.utils;
 
 public class TimerUtils {
     private long lastMS = 0L;

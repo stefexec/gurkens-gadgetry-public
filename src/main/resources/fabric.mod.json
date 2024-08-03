@@ -14,7 +14,7 @@
   "environment": "client",
   "entrypoints": {
     "meteor": [
-      "de.gurkenwerfer.toolkit.GurkensGadgetry"
+      "de.gurkenwerfer.gurkensgadgetry.GurkensGadgetry"
     ]
   },
   "mixins": [
@@ -23,8 +23,9 @@
   "custom": {
     "meteor-client:color": "0,255,155"
   },
+  "accessWidener": "gurkensgadgetry.accesswidener",
   "depends": {
-    "java": ">=17",
+    "java": ">=21",
     "minecraft": ">=${mc_version}",
     "meteor-client": "*"
   }

@@ -1,4 +1,4 @@
-package de.gurkenwerfer.toolkit.modules.BedrockESP;
+package de.gurkenwerfer.gurkensgadgetry.modules.BedrockESP;
 
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import meteordevelopment.meteorclient.events.render.Render3DEvent;

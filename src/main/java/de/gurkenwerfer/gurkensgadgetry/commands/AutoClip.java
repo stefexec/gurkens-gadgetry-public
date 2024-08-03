@@ -1,7 +1,7 @@
-package de.gurkenwerfer.toolkit.commands;
+package de.gurkenwerfer.gurkensgadgetry.commands;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import de.gurkenwerfer.toolkit.mixins.ClientConnectionAccessor;
+import de.gurkenwerfer.gurkensgadgetry.mixins.ClientConnectionAccessor;
 import meteordevelopment.meteorclient.commands.Command;
 import net.minecraft.command.CommandSource;
 import net.minecraft.entity.Entity;
@@ -10,9 +10,6 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.network.packet.c2s.play.VehicleMoveC2SPacket;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-
-import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
-import static meteordevelopment.meteorclient.MeteorClient.mc;
 
 public class AutoClip extends Command {
     public AutoClip() {
@@ -48,12 +45,12 @@ public class AutoClip extends Command {
 
                 for (int packetNumber = 0; packetNumber < (packetsRequired - 1); packetNumber++) {
                     Packet<?> positionPacket = new VehicleMoveC2SPacket(boat);
-                    ((ClientConnectionAccessor) mc.getNetworkHandler().getConnection())._sendImmediately(positionPacket, null);
+                    ((ClientConnectionAccessor) mc.getNetworkHandler().getConnection())._send(positionPacket, null);
                 }
 
                 boat.updatePosition(boat.getX(), y, boat.getZ());
                 Packet<?> positionPacket = new VehicleMoveC2SPacket(boat);
-                ((ClientConnectionAccessor) mc.getNetworkHandler().getConnection())._sendImmediately(positionPacket, null);
+                ((ClientConnectionAccessor) mc.getNetworkHandler().getConnection())._send(positionPacket, null);
 
             } else {
 

@@ -1,15 +1,12 @@
 {
   "required": true,
-  "package": "de.gurkenwerfer.toolkit.mixins",
-  "compatibilityLevel": "JAVA_17",
-  "client": [
-    "ClientConnectionMixin",
-    "ClientPlayNetworkHandlerMixin"
-  ],
+  "package": "de.gurkenwerfer.gurkensgadgetry.mixins",
+  "compatibilityLevel": "JAVA_21",
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
-    "ClientConnectionAccessor"
+    "ClientConnectionAccessor",
+    "WorldBorderMixin"
   ]
 }

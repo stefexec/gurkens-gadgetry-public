@@ -1,6 +1,11 @@
-package de.gurkenwerfer.toolkit.modules.BedrockESP;
+/*
+ * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * Copyright (c) Meteor Development.
+ */
 
-import de.gurkenwerfer.toolkit.GurkensGadgetry;
+package de.gurkenwerfer.gurkensgadgetry.modules.BedrockESP;
+
+import de.gurkenwerfer.gurkensgadgetry.GurkensGadgetry;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import meteordevelopment.meteorclient.events.render.Render3DEvent;
@@ -27,19 +32,35 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.chunk.Chunk;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BedrockESP extends Module {
+
+    // TODO: Fix Tracers
+
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
 
     public BedrockESP() {
-        super(GurkensGadgetry.CATEGORY, "Bedrock ESP", "Renders Illegal Bedrock through walls.");
+        super(GurkensGadgetry.CATEGORY, "BedrockESP", "Renders Illegal Bedrock through walls.");
         RainbowColors.register(this::onTickRainbow);
     }
 
-    private final List<Block> blocks = new ArrayList<>(List.of(Blocks.BEDROCK));
+    //private final List<Block> blocks = new ArrayList<>(List.of(Blocks.BEDROCK));
+    private final List<Block> blocks = new LinkedList<>(List.of(Blocks.BEDROCK));
+
+/*
+    private final Setting<List<Block>> blocks = sgGeneral.add(new BlockListSetting.Builder()
+        .name("blocks")
+        .description("Blocks to search for.")
+        .defaultValue(Blocks.BEDROCK)
+        .onChanged(blocks1 -> {
+            if (isActive() && Utils.canUpdate()) onActivate();
+        })
+        .build()
+    );
+*/
 
     private final Setting<ESPBlockData> blockConfigs = sgGeneral.add(new GenericSetting.Builder<ESPBlockData>()
         .name("color-config")
@@ -49,7 +70,7 @@ public class BedrockESP extends Module {
                 ShapeMode.Lines,
                 new SettingColor(0, 255, 200),
                 new SettingColor(0, 255, 200, 25),
-                true,
+                false,
                 new SettingColor(0, 255, 200, 125)
             )
         )
@@ -65,7 +86,7 @@ public class BedrockESP extends Module {
 
     private final BlockPos.Mutable blockPos = new BlockPos.Mutable();
 
-    private final Long2ObjectMap<ESPChunk> chunks = new Long2ObjectOpenHashMap<>();
+    private final Long2ObjectMap<ESPChunkFilter> chunks = new Long2ObjectOpenHashMap<>();
     private final List<ESPGroup> groups = new UnorderedArrayList<>();
 
     private Dimension lastDimension;
@@ -105,17 +126,17 @@ public class BedrockESP extends Module {
     }
 
     private void updateChunk(int x, int z) {
-        ESPChunk chunk = chunks.get(ChunkPos.toLong(x, z));
+        ESPChunkFilter chunk = chunks.get(ChunkPos.toLong(x, z));
         if (chunk != null) chunk.update();
     }
 
     private void updateBlock(int x, int y, int z) {
-        ESPChunk chunk = chunks.get(ChunkPos.toLong(x >> 4, z >> 4));
+        ESPChunkFilter chunk = chunks.get(ChunkPos.toLong(x >> 4, z >> 4));
         if (chunk != null) chunk.update(x, y, z);
     }
 
     public ESPBlock getBlock(int x, int y, int z) {
-        ESPChunk chunk = chunks.get(ChunkPos.toLong(x >> 4, z >> 4));
+        ESPChunkFilter chunk = chunks.get(ChunkPos.toLong(x >> 4, z >> 4));
         return chunk == null ? null : chunk.get(x, y, z);
     }
 
@@ -133,15 +154,18 @@ public class BedrockESP extends Module {
         }
     }
 
+    /*
     @EventHandler
     private void onChunkData(ChunkDataEvent event) {
         searchChunk(event.chunk, event);
     }
 
+     */
+
     private void searchChunk(Chunk chunk, ChunkDataEvent event) {
         MeteorExecutor.execute(() -> {
             if (!isActive()) return;
-            ESPChunk schunk = ESPChunk.searchChunk(chunk, blocks);
+            ESPChunkFilter schunk = ESPChunkFilter.searchChunk(chunk, blocks);
 
             if (schunk.size() > 0) {
                 synchronized (chunks) {
@@ -156,7 +180,7 @@ public class BedrockESP extends Module {
                 }
             }
 
-            if (event != null) ChunkDataEvent.returnChunkDataEvent(event);
+            //if (event != null) ChunkDataEvent.returnChunkDataEvent(event);
         });
     }
 
@@ -177,10 +201,10 @@ public class BedrockESP extends Module {
         if (added || removed) {
             MeteorExecutor.execute(() -> {
                 synchronized (chunks) {
-                    ESPChunk chunk = chunks.get(key);
+                    ESPChunkFilter chunk = chunks.get(key);
 
                     if (chunk == null) {
-                        chunk = new ESPChunk(chunkX, chunkZ);
+                        chunk = new ESPChunkFilter(chunkX, chunkZ);
                         if (chunk.shouldBeDeleted()) return;
 
                         chunks.put(key, chunk);
@@ -218,8 +242,8 @@ public class BedrockESP extends Module {
     @EventHandler
     private void onRender(Render3DEvent event) {
         synchronized (chunks) {
-            for (Iterator<ESPChunk> it = chunks.values().iterator(); it.hasNext();) {
-                ESPChunk chunk = it.next();
+            for (Iterator<ESPChunkFilter> it = chunks.values().iterator(); it.hasNext();) {
+                ESPChunkFilter chunk = it.next();
 
                 if (chunk.shouldBeDeleted()) {
                     MeteorExecutor.execute(() -> {

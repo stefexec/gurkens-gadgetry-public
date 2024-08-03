@@ -1,4 +1,4 @@
-package de.gurkenwerfer.toolkit.mixins;
+package de.gurkenwerfer.gurkensgadgetry.mixins;
 
 import io.netty.channel.Channel;
 import net.minecraft.network.ClientConnection;
@@ -15,7 +15,9 @@ public interface ClientConnectionAccessor {
     @Accessor("channel")
     Channel getChannel();
 
-    @Invoker("sendImmediately")
-    void _sendImmediately(Packet<?> packet, @Nullable PacketCallbacks callbacks);
-}
+    //@Invoker("sendImmediately")
+    //void _sendImmediately(Packet<?> packet, @Nullable PacketCallbacks callbacks);
 
+    @Invoker("send")
+    void _send(Packet<?> packet, @Nullable PacketCallbacks callbacks);
+}
