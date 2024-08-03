@@ -30,7 +30,7 @@
 - `Gurkfly` - Fly like in creative mode. Only works on servers without anti-cheat.
 - `NoChestRender` - Disables rendering of chests completely to improve performance.
 - `NoCollision` - Removes Client-Side collision with blocks and the world border.
-- `NoWorldBorder` - Disables the world border client side allowing you to walk through.
+- `NoWorldBorder` - Disables the world border client side allowing you to walk through. DISABLE WHEN JOINING SINGLE PLAYER WORLDS!
 - `Packet Logger` - A very basic packet logger.
 - `WorldGuardBypass` - Easily move inside WorldGuard protected areas. Now with FlyKick Bypass!
 
