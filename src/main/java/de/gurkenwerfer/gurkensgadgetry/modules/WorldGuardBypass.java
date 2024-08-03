@@ -13,7 +13,7 @@ import meteordevelopment.meteorclient.settings.BoolSetting;
 public class WorldGuardBypass extends Module{
 
     public WorldGuardBypass () {
-        super(GurkensGadgetry.CATEGORY, "WGBypass", "Bypasses WorldGuards region protection.");
+        super(GurkensGadgetry.CATEGORY, "WorldGuardBypass", "Bypasses WorldGuards region protection.");
     }
 
     public SettingGroup sgGeneral = settings.getDefaultGroup();

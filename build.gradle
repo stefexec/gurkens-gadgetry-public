@@ -29,14 +29,14 @@ dependencies {
     modImplementation "meteordevelopment:meteor-client:${project.meteor_version}"
 }
 
-loom {
-    accessWidenerPath = file("src/main/resources/gurkensgadgetry.accesswidener")
-}
-
 processResources {
     filesMatching("fabric.mod.json") {
         expand "version": project.version, "mc_version": project.minecraft_version
     }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/gurkensgadgetry.accesswidener")
 }
 
 tasks.withType(JavaCompile).configureEach {

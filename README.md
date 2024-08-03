@@ -24,14 +24,15 @@
 # Features
 ## Modules
 - `Bedrock ESP` - Renders illegally placed bedrock blocks through walls.
-- `AutoItemMove` - Automatically moves items from the player's inventory into opened containers.
+- `BlastGuard` - Uses different methods to teleport away from explosions.
+- `BoomESP` - Renders a box around about-to-explode things.
 - `DubCounter` - Count the amount of double chests in render distance.
-- `NoChestRender` - Disables rendering of chests completely to improve performance.
 - `Gurkfly` - Fly like in creative mode. Only works on servers without anti-cheat.
-- `Gurkwalk` - Bypasses the anti-human plugin on the LO server.
-- `LO Bypasses` - Bypasses the multiple nag/demo-screens on the LO Server.
+- `NoChestRender` - Disables rendering of chests completely to improve performance.
+- `NoCollision` - Removes Client-Side collision with blocks and the world border.
+- `NoWorldBorder` - Disables the world border client side allowing you to walk through.
 - `Packet Logger` - A very basic packet logger.
-- `WorldGuard Bypass` - Easily move inside WorldGuard protected areas. Now with FlyKick Bypass!
+- `WorldGuardBypass` - Easily move inside WorldGuard protected areas. Now with FlyKick Bypass!
 
 ## Commands
 - `CamClip` - Clip to the y coordinate your freecam is pointing at.
